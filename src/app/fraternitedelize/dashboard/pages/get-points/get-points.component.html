@@ -23,17 +23,19 @@
                   <div class="col pts-sect">
                     <form *ngFor="let usr of users | async">
                       <div class="get-points-button-sect">
-                        <h2 *ngIf="userUrl === usr.key && pointsUpdate === usr.lastGetPoints">Você já pegou os seus
-                          pontos hoje!
-                        </h2>
-                        <button (click)="isNewDay = false; usr.points = user.points + usr.points;
-                        usr.lastGetPoints = pointsUpdate; updatePoints(usr, usr.key)"
-                          *ngIf="userUrl === usr.key && pointsUpdate !== usr.lastGetPoints" class="points-btn">
-                          Mais 10 Pontos</button>
+                        <div class="first-sect" *ngIf="userUrl === usr.key && pointsUpdate === usr.lastGetPoints">
+                          <h2 class="geted-points">Você já pegou os seus pontos hoje!</h2>
+                        </div>
+                        <div class="secound-sect" *ngIf="userUrl === usr.key && pointsUpdate !== usr.lastGetPoints">
+                          <button (click)="isNewDay = false; usr.points = user.points + usr.points;
+                          usr.lastGetPoints = pointsUpdate; updatePoints(usr, usr.key)"
+                             class="points-btn">
+                            Mais 10 Pontos</button>
+                        </div>
                       </div>
                     </form>
                   </div>
-                  <div class="col-12" *ngFor="let user of users | async">
+                  <div class="col-12 your-points" *ngFor="let user of users | async">
                     <p class="you-have" *ngIf="userUrl === user.key">Você tem</p>
                     <p class="points" *ngIf="userUrl === user.key">{{user.points}} Pontos</p>
                   </div>

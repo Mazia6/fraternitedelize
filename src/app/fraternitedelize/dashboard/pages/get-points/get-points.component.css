@@ -13,6 +13,14 @@
     cursor: pointer;
 }
 
+.first-sect {
+    margin-bottom: 1rem;
+}
+
+.your-points {
+    margin-top: 4rem;
+}
+
 .page-title {
     font-size: 2rem;
     color: white;

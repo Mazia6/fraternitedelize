@@ -6,9 +6,9 @@ import { NgxMaskModule } from 'ngx-mask';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FraternitedelizeComponent } from './fraternitedelize.component';
-import { NotFoundPageComponent, ComfirmRewardModalComponent } from './shared';
+import { NotFoundPageComponent } from './shared';
 import { InitPageComponent, RegisterPageComponent } from './init/pages';
-import { DashPageComponent, RewardsPageComponent, AdminComponent, UserConfigPageComponent, RewardSetupComponent, SetupsComponent } from './dashboard/pages';
+import { DashPageComponent, AdminComponent, UserConfigPageComponent, RewardSetupComponent, SetupsComponent } from './dashboard/pages';
 import { GetPointsComponent } from './dashboard/pages/get-points/get-points.component';
 import { UserComponent } from './dashboard/pages/user/user.component';
 import { DashNavbarComponent, RewardListComponent, UserListComponent, UserEditComponent } from './dashboard/components';
@@ -121,7 +121,6 @@ const routes: Routes = [
     RegisterPageComponent,
     DashPageComponent,
     GetPointsComponent,
-    RewardsPageComponent,
     UserComponent,
     NotFoundPageComponent,
     DashNavbarComponent,
@@ -131,8 +130,7 @@ const routes: Routes = [
     RewardSetupComponent,
     SetupsComponent,
     UserListComponent,
-    UserEditComponent,
-    ComfirmRewardModalComponent
+    UserEditComponent
   ],
   exports: [
     FraternitedelizeComponent
