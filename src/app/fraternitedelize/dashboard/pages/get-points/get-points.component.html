@@ -1,0 +1,51 @@
+<div id="get-points">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <div class="col page-selct">
+            <a class="points-page-a" (click)="pointsPage = true">
+              <p class="page-title">Pontos</p>
+            </a>
+          </div>
+          <div class="col page-selct">
+            <a class="points-page-a" (click)="pointsPage = false">
+              <p class="page-title">Premios</p>
+            </a>
+          </div>
+        </div>
+        <div *ngIf="pointsPage" class="points-sect">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <h1>Pegue aqui seus pontos diários</h1>
+                <div class="points-bottom row">
+                  <div class="col pts-sect">
+                    <form *ngFor="let usr of users | async">
+                      <div class="get-points-button-sect">
+                        <h2 *ngIf="userUrl === usr.key && pointsUpdate === usr.lastGetPoints">Você já pegou os seus
+                          pontos hoje!
+                        </h2>
+                        <button (click)="isNewDay = false; usr.points = user.points + usr.points;
+                        usr.lastGetPoints = pointsUpdate; updatePoints(usr, usr.key)"
+                          *ngIf="userUrl === usr.key && pointsUpdate !== usr.lastGetPoints" class="points-btn">
+                          Mais 10 Pontos</button>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="col-12" *ngFor="let user of users | async">
+                    <p class="you-have" *ngIf="userUrl === user.key">Você tem</p>
+                    <p class="points" *ngIf="userUrl === user.key">{{user.points}} Pontos</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!pointsPage" class="get-rewards-sect">
+          <app-reward-list></app-reward-list>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

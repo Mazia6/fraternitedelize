@@ -1,0 +1,17 @@
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch
+}
+
+.nav {
+    display: table-cell;
+	width: auto;
+	vertical-align: top;
+}
+
+.content {
+    display: table-cell;
+	width: 100%;
+	vertical-align: top;
+}
