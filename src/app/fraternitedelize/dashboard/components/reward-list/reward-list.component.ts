@@ -16,7 +16,6 @@ export class RewardListComponent implements OnInit {
   listColapsed = true;
   key: string = '';
   admin = '';
-  editing = false;
 
   rewards: Observable<any>;
   reward: Reward
@@ -74,7 +73,6 @@ export class RewardListComponent implements OnInit {
 
   editReward(reward: Reward, key: string) {
     this.rewardService.updateReward(reward, key);
-    this.editing = false;
   }
   
   userPointsUpdate(user: User, key: string) {
@@ -83,6 +81,10 @@ export class RewardListComponent implements OnInit {
 
   getUsers() {
     this.users = this.userService.getAllUsers();
+  }
+
+  editing(rwd: Reward, key: string) {
+    this.rewardData.changeReward(rwd, key);
   }
 
 }

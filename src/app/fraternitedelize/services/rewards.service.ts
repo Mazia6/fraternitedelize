@@ -13,7 +13,7 @@ export class RewardsService {
   constructor(private angularDb: AngularFireDatabase) { }
 
   getAllRewards() {
-    return this.angularDb.list('rewards')
+    return this.angularDb.list('/rewards', r => r.orderByChild('name'))
       .snapshotChanges()
       .pipe(
         map(changes => {

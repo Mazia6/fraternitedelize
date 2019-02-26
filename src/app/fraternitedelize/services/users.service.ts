@@ -12,7 +12,7 @@ export class UsersService {
   constructor(private angularDb: AngularFireDatabase) { }
 
   getAllUsers() {
-    return this.angularDb.list('users')
+    return this.angularDb.list('users', u => u.orderByChild('name'))
       .snapshotChanges()
       .pipe(
         map(changes => {
