@@ -7,5 +7,8 @@ export const environment = {
     projectId: "fraternitedelize-api",
     storageBucket: "fraternitedelize-api.appspot.com",
     messagingSenderId: "966845412426"
+  },
+  gromaps: {
+    apiKey: 'AIzaSyDa9tJ23ogNnCaEkacibZ1zt8HbuE0lmwU'
   }
 };

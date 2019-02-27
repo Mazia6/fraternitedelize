@@ -42,3 +42,15 @@
     padding-right: 3rem;
     margin-top: 2rem;
 }
+
+.btn-register:disabled {
+    background-color: rgb(66, 66, 66);
+    color: rgb(151, 151, 151);
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin-top: 2rem;
+}
+
+.invalid-input-alert {
+    color: rgb(253, 135, 135);
+}

@@ -4,23 +4,25 @@
       <div class="col-12">
         <a (click)="isColapsed = false" *ngIf="isColapsed === true"><i class="fas fa-bars menu-icon"></i></a>
         <div *ngIf="isColapsed === false">
-          <p class="title">Seja Bem Vindo(a)</p>
           <div class="user-name" *ngFor="let user of userInfo | async">
             <p *ngIf="userUrl === user.key" class="nav-user-name">{{ user.name }}</p>
           </div>
           <div class="menu-list">
             <div *ngFor="let user of userInfo | async">
-              <ul *ngIf="userUrl !== '-LYH8J9VMbMIjrrTNnbU'" class="list">
-                <li *ngIf="userUrl === user.key" class="list-item"><a (click)="isColapsed = true" class="no-decoration" routerLink="/dash/user/{{user.key}}/get-points">Pontos</a></li>
-                <li *ngIf="userUrl === user.key" class="list-item"><a (click)="isColapsed = true" class="no-decoration" routerLink="/dash/user/{{user.key}}/config">Config.
-                    Conta</a></li>
-              </ul>
+              <div *ngIf="userUrl !== '-LYH8J9VMbMIjrrTNnbU'" class="list row">
+                <div *ngIf="userUrl === user.key" class="list-item col"><a (click)="isColapsed = true"
+                    class="no-decoration" routerLink="/dash/user/{{user.key}}/get-points">Pontos</a></div>
+                <div *ngIf="userUrl === user.key" class="list-item col"><a (click)="isColapsed = true" class="no-decoration"
+                    routerLink="/dash/user/{{user.key}}/config">Config</a></div>
+              </div>
             </div>
             <div *ngFor="let user of userInfo | async">
-              <ul *ngIf="userUrl === '-LYH8J9VMbMIjrrTNnbU'" class="list">
-                <li *ngIf="userUrl === user.key" class="list-item"><a (click)="isColapsed = true" class="no-decoration" routerLink="/dash/admn/{{user.key}}/rewards-setup">Premios</a></li>
-                <li *ngIf="userUrl === user.key" class="list-item"><a (click)="isColapsed = true" class="no-decoration" routerLink="/dash/admn/{{user.key}}/users-setup">Config</a></li>
-              </ul>
+              <div *ngIf="userUrl === '-LYH8J9VMbMIjrrTNnbU'" class="list row">
+                <div *ngIf="userUrl === user.key" class="list-item col"><a (click)="isColapsed = true" class="no-decoration"
+                    routerLink="/dash/admn/{{user.key}}/rewards-setup">Premios</a></div>
+                <div *ngIf="userUrl === user.key" class="list-item col"><a (click)="isColapsed = true" class="no-decoration"
+                    routerLink="/dash/admn/{{user.key}}/users-setup">Users</a></div>
+              </div>
             </div>
             <div class="logout">
               <p><a class="no-decoration" routerLink="/fraternitedelize/init">Logout</a></p>

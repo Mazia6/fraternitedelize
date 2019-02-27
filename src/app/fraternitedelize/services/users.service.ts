@@ -24,7 +24,7 @@ export class UsersService {
   createUser(user: User) {
     this.angularDb.list('users').push(user)
       .then((result: any) => {
-        console.log(result.key)
+        return result
       })
   }
 

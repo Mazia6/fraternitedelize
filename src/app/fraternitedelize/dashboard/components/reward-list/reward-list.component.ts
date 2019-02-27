@@ -12,6 +12,9 @@ import { UserDataService } from 'src/app/fraternitedelize/services/user-data.ser
 })
 export class RewardListComponent implements OnInit {
   modal = false;
+  needConfirm = false;
+  confirmed = false;
+  password: string = '';
 
   listColapsed = true;
   key: string = '';
@@ -86,5 +89,4 @@ export class RewardListComponent implements OnInit {
   editing(rwd: Reward, key: string) {
     this.rewardData.changeReward(rwd, key);
   }
-
 }

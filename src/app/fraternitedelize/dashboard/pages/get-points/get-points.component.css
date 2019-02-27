@@ -5,6 +5,11 @@
     min-height: 100vh;
 }
 
+.location {
+    padding-top: 2rem;
+    color: white;
+}
+
 .page-selct {
     padding-top: 2rem;
 }
@@ -18,7 +23,7 @@
 }
 
 .your-points {
-    margin-top: 4rem;
+    margin-top: 8rem;
 }
 
 .page-title {

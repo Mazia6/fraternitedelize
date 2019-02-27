@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxMaskModule } from 'ngx-mask';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
 
 import { FraternitedelizeComponent } from './fraternitedelize.component';
 import { NotFoundPageComponent } from './shared';
@@ -12,7 +14,7 @@ import { DashPageComponent, AdminComponent, UserConfigPageComponent, RewardSetup
 import { GetPointsComponent } from './dashboard/pages/get-points/get-points.component';
 import { UserComponent } from './dashboard/pages/user/user.component';
 import { DashNavbarComponent, RewardListComponent, UserListComponent, UserEditComponent } from './dashboard/components';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 const routes: Routes = [
   {
@@ -109,10 +111,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     BrowserAnimationsModule,
     NgxMaskModule.forRoot(),
-    RouterModule.forRoot(
-      routes,
-      { enableTracing: true }
-    )
+    RouterModule.forRoot(routes),
+    AgmCoreModule.forRoot(environment.gromaps)
   ],
   declarations: [
     FraternitedelizeComponent,
