@@ -2,9 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h2 class="location" *ngIf="inMoema && !inPinheiros">Bem vindo a LF Moema</h2>
-        <h2 class="location" *ngIf="!inMoema && inPinheiros">Bem vindo a LF Pinheiros</h2>
-        <h2 class="location" *ngIf="!inMoema && !inPinheiros">Que tal ir até um LF pra tomar um chope?</h2>
+        <h2 class="location" *ngIf="!inMoema && !inPinheiros">Que tal tomar um chope?</h2>
       </div>
     </div>
     <div class="row">
@@ -29,25 +27,35 @@
                 <div class="points-bottom row">
                   <div class="col pts-sect">
                     <form *ngFor="let usr of users | async">
-                      <div class="get-points-button-sect">
+                      <div class="get-points-button-sect" *ngIf="userUrl === usr.key">
                         <div class="first-sect" *ngIf="userUrl === usr.key && pointsUpdate === usr.lastGetPoints">
                           <h2 class="geted-points">Você já pegou os seus pontos hoje!</h2>
                         </div>
                         <div class="first-sect" *ngIf="userUrl === usr.key && inUnity === false">
-                          <h2 class="geted-points">É necessário estar em uma de nossas unidades para resgatar seus pontos!</h2>
+                          <div *ngIf="pointsUpdate !== usr.lastGetPoints">
+                            <div class="form-group">
+                              <input type="password" class="form-control confirm-input" [(ngModel)]="password"
+                                name="password" placeholder="PASSWORD" />
+                            </div>
+                            <button [disabled]="password !== adminPswd" (click)="isNewDay = false; usr.points = user.points + usr.points;
+                            usr.lastGetPoints = pointsUpdate; updatePoints(usr, usr.key)" class="points-btn">
+                              Mais 10 Pontos</button>
+                          </div>
                         </div>
-                        <div class="secound-sect" *ngIf="userUrl === usr.key && pointsUpdate !== usr.lastGetPoints && inUnity === true">
+                        <div class="secound-sect"
+                          *ngIf="userUrl === usr.key && pointsUpdate !== usr.lastGetPoints && inUnity === true">
                           <button (click)="isNewDay = false; usr.points = user.points + usr.points;
-                          usr.lastGetPoints = pointsUpdate; updatePoints(usr, usr.key)"
-                             class="points-btn">
+                          usr.lastGetPoints = pointsUpdate; updatePoints(usr, usr.key)" class="points-btn">
                             Mais 10 Pontos</button>
                         </div>
                       </div>
                     </form>
                   </div>
-                  <div class="col-12 your-points" *ngFor="let user of users | async">
-                    <p class="you-have" *ngIf="userUrl === user.key">Você tem</p>
-                    <p class="points" *ngIf="userUrl === user.key">{{user.points}} Pontos</p>
+                  <div *ngFor="let user of users | async">
+                    <div class="col-12 your-points" *ngIf="userUrl === user.key">
+                      <p class="you-have">Você tem</p>
+                      <p class="points">{{user.points}} Pontos</p>
+                    </div>
                   </div>
                 </div>
               </div>

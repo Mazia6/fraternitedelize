@@ -13,6 +13,9 @@ import { GetPointsService } from 'src/app/fraternitedelize/services/get-points.s
   styleUrls: ['./get-points.component.css']
 })
 export class GetPointsComponent implements OnInit {
+  /* admin-passwd */
+  adminPswd = '141320141234'
+
   lat 
   long
 

@@ -22,8 +22,15 @@
     margin-bottom: 1rem;
 }
 
+.confirm-input {
+    background-color: rgb(51, 51, 51);
+    color: white;
+    border: none;
+    text-align: center;
+}
+
 .your-points {
-    margin-top: 8rem;
+    margin-top: 4rem;
 }
 
 .page-title {
